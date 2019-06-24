@@ -1,33 +1,32 @@
-import { connect } from 'react-redux';
-import { getPrisoners } from '../actions';
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import {GET_Inmate} from '../actions/Prisoners'
 class Prisoners extends Component {
-	componentDidMount() {
-		this.props.getPrisoners();
-	}
+  static propTypes = {
+    prop: PropTypes.string
+  }
 
-	render() {
-		return (
-			<div>
-				{this.props.prisoners &&
-					this.props.prisoners.map(prisoner => (
-						<div>
-							<h1>{prisoner.name}</h1>
-							<h1>{prisoner.availability}</h1>
-							<h1>{prisoner.skills}</h1>
-							<h1>{prisoner.previousExperience}</h1>
-						</div>
-					))}
-			</div>
-		);
-	}
+componentDidMount(){
+    this.props.GET_Inmate()
 }
 
-const mapStateToProps = state => {
-	return {
-		prisoners : state.prisoners,
-	};
-};
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
 
-export default connect(mapStateToProps, { getPrisoners })(Prisoners);
+const mapStateToProps = (state) => {
+  console.log(state)
+  return{
+      prisoners:state.prisoners
+  }
+
+}
+
+
+export default connect(mapStateToProps,{GET_Inmate})(Prisoners)
