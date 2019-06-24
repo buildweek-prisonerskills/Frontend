@@ -1,3 +1,5 @@
 import { combineReducers } from 'redux';
-
-export default combineReducers({});
+import PrisonersData from './Prisoner'
+export default combineReducers({
+    prisoners:PrisonersData
+});
