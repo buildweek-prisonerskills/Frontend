@@ -1,6 +1,6 @@
 //the base of the api
 import {PrisonApiBase} from '../components/utils/api'
-
+import axios from 'axios'
 
 //get data
 export  const  GET_INMATE_START = "GET_INMATE_START";
@@ -8,7 +8,7 @@ export const GET_INMATE_SUCCESS = " GET_INMATE_SUCCESS";
 export const GET_INMATE_ERROR = "GET_INMATE_ERROR";
 export const GET_Inmate = () =>dispatch=> {
 dispatch({type:GET_INMATE_START})
-PrisonApiBase().get('/posts').then(res => dispatch({type:GET_INMATE_SUCCESS,payload:res.data})).catch(err => dispatch({type:GET_INMATE_ERROR,payload:err.data}))
+axios.get('https://prisonerskills.herokuapp.com/api/inmates').then(res => dispatch({type:GET_INMATE_SUCCESS,payload:res.data})).catch(err => dispatch({type:GET_INMATE_ERROR,payload:err.data}))
 }
 
 
