@@ -1,71 +1,50 @@
-import React, { Component } from "react";
-import {connect} from 'react-redux'
-import {Add_Prison} from '../actions/Prisons'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Add_Prison } from '../actions/Prisons';
 
 class PrisonLogin extends Component {
-  state = { prisonName: "", address: "" };
+	state = { prisonName: '', address: '' };
 
-  onhandleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+	onhandleChange = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
 
-  handleAddPrison = e => {
- e.preventDefault()
-const Prison =this.state
-this.props.Add_Prison(Prison)
-this.setState({ prisonName: "", address: "" })
- 
-  };
+	handleAddPrison = e => {
+		e.preventDefault();
+		const Prison = this.state;
+		this.props.Add_Prison(Prison);
+		this.setState({ prisonName: '', address: '' });
+	};
 
-  render() {
-    return (
-      <div>
-        <h1>Create Account</h1>
-        <form>
-          Prison Name:{" "}
-          <input
-            onChange={this.onhandleChange}
-            type="text"
-            name="prisonName"
-            value={this.state.prisonName}
-          />
-          Address:{" "}
-          <input
-            onChange={this.onhandleChange}
-            name="Address"
-            type="text"
-            value={this.state.address}
-          />
-        </form>
+	render() {
+		return (
+			<div>
+				<h1>Create Account</h1>
+				<form>
+					Prison Name:{' '}
+					<input onChange={this.onhandleChange} type='text' name='prisonName' value={this.state.prisonName} />
+					Address:{' '}
+					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
+					<button>Create</button>
+				</form>
 
-        <h1>Login</h1>
-        <form>
-          Prison Name:{" "}
-          <input
-            onChange={this.onhandleChange}
-            type="text"
-            name="prisonName"
-            value={this.state.prisonName}
-          />
-          Address:{" "}
-          <input
-            onChange={this.onhandleChange}
-            name="Address"
-            type="text"
-            value={this.state.address}
-          />
-        </form>
-      </div>
-    );
-  }
+				<h1>Login</h1>
+				<form>
+					Prison Name:{' '}
+					<input onChange={this.onhandleChange} type='text' name='prisonName' value={this.state.prisonName} />
+					Address:{' '}
+					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
+					<button>Login</button>
+				</form>
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = (state)=>{
-   
-    return{
-     prisons:state.prisons
-    }
-}
+const mapStateToProps = state => {
+	return {
+		prisons : state.prisons,
+	};
+};
 
-
-export default  connect(mapStateToProps,{Add_Prison}) (PrisonLogin);
+export default connect(mapStateToProps, { Add_Prison })(PrisonLogin);
