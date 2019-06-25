@@ -2,7 +2,7 @@
 import {PrisonApiBase} from '../components/utils/api'
 
 
-//get
+//get data
 export  const  GET_INMATE_START = "GET_INMATE_START";
 export const GET_INMATE_SUCCESS = " GET_INMATE_SUCCESS";
 export const GET_INMATE_ERROR = "GET_INMATE_ERROR";
