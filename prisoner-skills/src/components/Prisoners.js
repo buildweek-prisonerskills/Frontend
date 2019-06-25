@@ -18,6 +18,7 @@ componentDidMount(){
       <div>
        { this.props.prisoners.prisoners.map(inmate =>{
        return  <Prisoner key={inmate.id}  inmate={inmate}/>
+            
        })}
       </div>
     )

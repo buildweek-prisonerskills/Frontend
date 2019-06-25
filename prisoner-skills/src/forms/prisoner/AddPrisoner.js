@@ -1,64 +1,56 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addPrisoner } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Add_Inmate } from "../../actions/Prisoners";
 
-class PrisonerForm extends Component {
-	state = {
-		name               : '',
-		availability       : '',
-		skills             : '',
-		previousExperience : '',
-	};
+class AddPrisoner extends Component {
+  state = {
+	name: "",
+	facility_id:Date.now(),
+    work_release: "False",
+    skills: ""
+  };
 
-	handleInputChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
-	};
-	handleAddPrisoner = e => {
-		e.preventDefault();
+  onInputChange = e => {
+    this.setState({ [e.currentTarget.name]: e.currentTarget.value });
+  };
 
-		const prisoner = this.state;
-		this.props.addPrisoner(prisoner);
+  onSubmitHandle = e => [
+	e.preventDefault(),
+	console.log(this.state),
+    this.props.Add_Inmate(this.state)
+  ];
 
-		this.setState({
-			name               : '',
-			availability       : '',
-			skills             : '',
-			previousExperience : '',
-		});
-	};
+  render() {
+	  
+    return (
+      <div>
+        <form onSubmit={this.onSubmitHandle}>
+          <div>
+            <input
+              type="text"
+              onChange={this.onInputChange}
+              name="name"
+              value={this.state.name}
+            />
+          </div>
+       
+          <div className="field">
+            {" "}
+            <input
+              onChange={this.onInputChange}
+              name="skills"
+              value={this.state.skills}
+            />
+          </div>
 
-	render() {
-		return (
-			<div className='PrisonerForm'>
-				<form onSubmit={this.handleAddPrisoner}>
-					<input onChange={this.handleInputChange} placeholder='Name' value={this.state.name} name='name' />
-					<input
-						onChange={this.handleInputChange}
-						placeholder='Availability'
-						value={this.state.availability}
-						name='availability'
-					/>
-					<input
-						onChange={this.handleInputChange}
-						placeholder='Skills'
-						value={this.state.skills}
-						name='skills'
-					/>
-					<input
-						onChange={this.handleInputChange}
-						placeholder='Previous Experience'
-						value={this.state.previousExperience}
-						name='previous experience'
-					/>
-					<button type='submit'>Add a Prisoner</button>
-				</form>
-			</div>
-		);
-	}
+          <button>Add</button>
+        </form>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-    prisoners: state.prisoners,
-})
-
-export default connect(mapStateToProps, { addPrisoner })(PrisonerForm)
+export default connect(
+  null,
+  { Add_Inmate }
+)(AddPrisoner);
