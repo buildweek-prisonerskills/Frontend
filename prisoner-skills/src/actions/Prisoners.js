@@ -32,9 +32,9 @@ export const DELETE_INMATE_SUCCESS = " DELETE_INMATE_SUCCESS";
 export const DELETE_INMATE_ERROR = "DELETE_INMATE_ERROR";
 export const Delete_Inmate = ({inmateIds}) =>  dispatch => {
   dispatch({ type: DELETE_INMATE_START });console.log('looking for id',inmateIds)
-   axios
+ return   axios
     .delete(`https://prisonerskills.herokuapp.com/api/inmates/${inmateIds}`)
-    .then(res =>  dispatch({ type: DELETE_INMATE_SUCCESS, payload: inmateIds }))
+    .then(res =>  {dispatch({ type: DELETE_INMATE_SUCCESS, payload: inmateIds });return true})
     .catch(err => dispatch({ type: DELETE_INMATE_ERROR, payload: err.data }));
 };
 
@@ -44,8 +44,9 @@ export const UPDATE_INMATE_SUCCESS = "UPDATE_INMATE_SUCCESS";
 export const UPDATE_INMATE_ERROR = "UPDATE_INMATE_ERROR";
 export const Update_Inmate = (inmate) =>  dispatch => {
   dispatch({ type: UPDATE_INMATE_START });console.log('looking for id',inmate)
-   axios
+   return axios
     .put(`https://prisonerskills.herokuapp.com/api/inmates/${inmate.id}`,inmate)
-    .then(res =>  dispatch({ type: UPDATE_INMATE_SUCCESS, payload: inmate }))
+    .then(res => { dispatch({ type: UPDATE_INMATE_SUCCESS, payload: inmate });return true})
+
     .catch(err => dispatch({ type: UPDATE_INMATE_ERROR, payload: err.data }));
 };

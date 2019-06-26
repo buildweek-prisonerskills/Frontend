@@ -101,12 +101,12 @@ const PrisonersData = (state = initialState, action) => {
           error: ""
         };
       case UPDATE_INMATE_SUCCESS:
-         
+         const newPrisoners = state.prisoners.filter(inmate => inmate.id !== action.payload.id)
           
          console.log('here',action.payload)
         return {
           ...state,
-          prisoners:  state.prisoners.filter(inmate => inmate.id !== action.payload),
+          prisoners:  [...newPrisoners,action.payload],
           updatingPrisoners: false
         };
       case UPDATE_INMATE_ERROR:
