@@ -1,5 +1,5 @@
-import {
 
+import {
   GET_INMATE_START,
   GET_INMATE_ERROR,
   GET_INMATE_SUCCESS,
@@ -12,18 +12,16 @@ import {
   UPDATE_INMATE_ERROR,UPDATE_INMATE_SUCCESS,UPDATE_INMATE_START
 } from "../actions";
 
-
 const initialState = {
-	prisoners         : [],
-	fetchingPrisoners : false,
-	addingPrisoners   : false,
-	updatingPrisoner  : false,
-	deletingPrisoner  : false,
-	error             : null,
+  prisoners: [],
+  fetchingPrisoners: false,
+  addingPrisoners: false,
+  updatingPrisoner: false,
+  deletingPrisoner: false,
+  error: null
 };
 
 const PrisonersData = (state = initialState, action) => {
-
  
   switch (action.type) {
     
@@ -104,22 +102,21 @@ const PrisonersData = (state = initialState, action) => {
           error: ""
         };
       case UPDATE_INMATE_SUCCESS:
-         
+         const newPrisoners = state.prisoners.filter(inmate => inmate.id !== action.payload.id)
           
          console.log('here',action.payload)
         return {
           ...state,
-          prisoners:  state.prisoners.filter(inmate => inmate.id !== action.payload),
+          prisoners:  [...newPrisoners,action.payload],
           updatingPrisoners: false
         };
       case UPDATE_INMATE_ERROR:
         return { updatingPrisoners: false, error: action.payload };
   
 
-
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 };
 
 export default PrisonersData;
