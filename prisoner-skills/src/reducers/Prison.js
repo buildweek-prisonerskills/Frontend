@@ -1,7 +1,7 @@
 import { GET_PRISON_START, GET_PRISON_ERROR, GET_PRISON_SUCCESS } from '../actions';
 
 const initialState = {
-	prisoners       : [],
+	prisons         : [],
 	fetchingPrisons : false,
 	addingPrisons   : false,
 	updatingPrison  : false,
@@ -19,6 +19,7 @@ const PrisonsData = (state = initialState, action) => {
 				error           : '',
 			};
 		case GET_PRISON_SUCCESS: {
+			console.log('here', action.payload)
 			return {
 				...state,
 				prisons         : action.payload,
@@ -29,8 +30,8 @@ const PrisonsData = (state = initialState, action) => {
 		case GET_PRISON_ERROR: {
 			return {
 				...state,
-				fetchingPrison : false,
-				error          : '',
+				fetchingPrisons : false,
+				error           : '',
 			};
 		}
 		default:

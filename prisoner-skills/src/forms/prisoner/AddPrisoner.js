@@ -10,6 +10,7 @@ class AddPrisoner extends Component {
     skills: ""
   };
 
+
   onInputChange = e => {
     this.setState({ [e.currentTarget.name]: e.currentTarget.value });
   };
@@ -17,7 +18,8 @@ class AddPrisoner extends Component {
   onSubmitHandle = e => [
 	e.preventDefault(),
 	console.log(this.state),
-    this.props.Add_Inmate(this.state)
+    this.props.Add_Inmate(this.state),
+    document.location.reload()
   ];
 
   render() {
