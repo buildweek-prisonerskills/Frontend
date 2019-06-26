@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import React from 'react';
+import './App.scss';
 import Prisoners from './components/Prisoners'
 //import AddPrisoner from './forms/prisoner/AddPrisoner'
 import EditPrisoner from './forms/prisoner/EditPrisoner'
