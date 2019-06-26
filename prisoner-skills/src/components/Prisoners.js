@@ -14,7 +14,7 @@ componentDidMount(){
 
 
   render() {
-    console.log(this.props)
+    console.log('priosn.js history',this)
     return (
       <div>
        { this.props.prisoners.prisoners.map((inmate,i) =>{
