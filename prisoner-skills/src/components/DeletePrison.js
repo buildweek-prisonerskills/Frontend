@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Delete_Prison } from '../actions/Prisoners';
+import { Delete_Prison } from '../actions/Prisons';
 const DeletePrison = props => {
 	console.log('delete button', props.prisonIds);
 	return (
