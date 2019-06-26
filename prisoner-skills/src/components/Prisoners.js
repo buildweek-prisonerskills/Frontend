@@ -13,10 +13,10 @@ componentDidMount(){
 }
 
   render() {
-    console.log(this.props.prisoners.prisoners)
+    console.log(this.props)
     return (
       <div>
-       { this.props.prisoners.prisoners.map(inmate =>{
+       { this.props.prisoners.inmates.map(inmate =>{
        return  <Prisoner key={inmate.id}  inmate={inmate}/>
             
        })}
@@ -26,7 +26,7 @@ componentDidMount(){
 }
 
 const mapStateToProps = (state) => {
-  
+  console.log(state)
   return{
       prisoners:state.prisoners
   }

@@ -11,7 +11,7 @@ import {
 } from "../actions";
 
 const initialState = {
-  prisoners: [],
+  inmates: [],
   fetchingPrisoners: false,
   addingPrisoners: false,
   updatingPrisoner: false,
@@ -31,7 +31,7 @@ const PrisonersData = (state = initialState, action) => {
     case GET_INMATE_SUCCESS: {
       return {
         ...state,
-        prisoners: action.payload,
+        inmates: action.payload,
         fetchingPrisoners: false,
         error: ""
       };
@@ -55,7 +55,7 @@ const PrisonersData = (state = initialState, action) => {
       return {
         ...state,
         addingPrisoners: false,
-        prisoners: action.payload
+        inmates: [...state.prisoners.inmates]
       };
     case ADD_INMATE_ERROR:
       return {
@@ -75,12 +75,13 @@ const PrisonersData = (state = initialState, action) => {
     case DELETE_INMATE_SUCCESS:
       return {
         ...state,
-        prisoners: state. prisoners.filter(
-          prisoner =>  prisoner.id !== action.payload
-        ),
+             inmates: state.inmates.filter(
+             prisoner =>  prisoner.id !== action.payload)
+         ,
         deletingPrisoners: false
       };
     case DELETE_INMATE_ERROR:
+      console.log(state)
       return { deletingPrisoners: false, error: action.payload };
 
     default:

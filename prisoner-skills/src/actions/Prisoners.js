@@ -22,7 +22,7 @@ export const Add_Inmate = inmate => dispatch => {
   dispatch({ type: ADD_INMATE_START });
   axios
     .post("https://prisonerskills.herokuapp.com/api/inmates", inmate)
-    .then(res =>{console.log(inmate) ;dispatch({ type: ADD_INMATE_SUCCESS, payload: res.data })})
+    .then(res =>dispatch({ type: ADD_INMATE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_INMATE_ERROR, payload: err.data }));
 };
 
@@ -34,7 +34,7 @@ export const Delete_Inmate = id => dispatch => {
   dispatch({ type: DELETE_INMATE_START });
   axios
     .delete(`https://prisonerskills.herokuapp.com/api/inmates/${id}`)
-    .then(res =>{console.log(res,id); dispatch({ type: DELETE_INMATE_SUCCESS, payload: res.data })})
+    .then(res => dispatch({ type: DELETE_INMATE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: DELETE_INMATE_ERROR, payload: err.data }));
 };
 
