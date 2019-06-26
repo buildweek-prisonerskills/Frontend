@@ -13,11 +13,10 @@ class Prisons extends Component {
 	}
 
 	render() {
-		console.log('HELP', this.props);
 		return (
 			<div>
-				{this.props.prisons.prisons.map(prison => {
-					return <Prison key={prison.id} prison={prison} />;
+				{this.props.prisons.prisons.map((prison, I) => {
+					return <Prison key={I} prison={prison} />;
 				})}
 			</div>
 		);
@@ -25,7 +24,6 @@ class Prisons extends Component {
 }
 
 const mapStateToProps = state => {
-	console.log('HELP PLS', state);
 	return {
 		prisons : state.prison,
 	};
