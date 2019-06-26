@@ -4,8 +4,8 @@ import { Delete_Prison } from '../actions/Prisons';
 import DeletePrison from './DeleteBtn';
 
 const Prison = props => {
-	const { name, id, availability, address } = props.prison;
-	console.log(props);
+	const { name, id, availability, location } = props.prison;
+	console.log('Almost Fixed', props);
 	return (
 		<div className='ui container'>
 			<table className='ui inverted blue table  '>
@@ -19,9 +19,9 @@ const Prison = props => {
 				<tbody className='ui four column grid'>
 					<tr className=' row'>
 						<td className='column'>{name}</td>
-						<td className='column'>{id}</td>
+						<td className='column'>{location}</td>
 						<td className='column'>{availability}</td>
-						<td className='column'>{address}</td>
+
 						<td className='column'>
 							{' '}
 							<DeletePrison prisonIds={id} />{' '}
