@@ -1,4 +1,5 @@
 import {
+
   GET_INMATE_START,
   GET_INMATE_ERROR,
   GET_INMATE_SUCCESS,
@@ -11,16 +12,18 @@ import {
   UPDATE_INMATE_ERROR,UPDATE_INMATE_SUCCESS,UPDATE_INMATE_START
 } from "../actions";
 
+
 const initialState = {
-  prisoners: [],
-  fetchingPrisoners: false,
-  addingPrisoners: false,
-  updatingPrisoner: false,
-  deletingPrisoner: false,
-  error: null
+	prisoners         : [],
+	fetchingPrisoners : false,
+	addingPrisoners   : false,
+	updatingPrisoner  : false,
+	deletingPrisoner  : false,
+	error             : null,
 };
 
 const PrisonersData = (state = initialState, action) => {
+
  
   switch (action.type) {
     
@@ -113,9 +116,10 @@ const PrisonersData = (state = initialState, action) => {
         return { updatingPrisoners: false, error: action.payload };
   
 
-    default:
-      return state;
-  }
+
+		default:
+			return state;
+	}
 };
 
 export default PrisonersData;

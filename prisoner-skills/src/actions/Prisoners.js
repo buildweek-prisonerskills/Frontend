@@ -1,8 +1,8 @@
 //the base of the api
-import { PrisonApiBase } from "../components/utils/api";
-import axios from "axios";
+import axios from 'axios';
 
 //get data
+
 export const GET_INMATE_START = "GET_INMATE_START";
 export const GET_INMATE_SUCCESS = " GET_INMATE_SUCCESS";
 export const GET_INMATE_ERROR = "GET_INMATE_ERROR";
@@ -12,13 +12,15 @@ export const GET_Inmate = (id) => dispatch => {
     .get("https://prisonerskills.herokuapp.com/api/inmates")
     .then(res => dispatch({ type: GET_INMATE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: GET_INMATE_ERROR, payload: err.data }));
+
 };
 
 //add
-export const ADD_INMATE_START = "ADD_INMATE_START";
-export const ADD_INMATE_SUCCESS = " ADD_INMATE_SUCCESS";
-export const ADD_INMATE_ERROR = "ADD_INMATE_ERROR";
+export const ADD_INMATE_START = 'ADD_INMATE_START';
+export const ADD_INMATE_SUCCESS = ' ADD_INMATE_SUCCESS';
+export const ADD_INMATE_ERROR = 'ADD_INMATE_ERROR';
 export const Add_Inmate = inmate => dispatch => {
+
   dispatch({ type: ADD_INMATE_START });
   axios
     .post("https://prisonerskills.herokuapp.com/api/inmates", inmate)
@@ -49,3 +51,11 @@ export const Update_Inmate = (inmate) =>  dispatch => {
     .then(res =>  dispatch({ type: UPDATE_INMATE_SUCCESS, payload: inmate }))
     .catch(err => dispatch({ type: UPDATE_INMATE_ERROR, payload: err.data }));
 };
+
+};
+
+//update
+export const UPDATE_INMATE_START = 'UPDATE_INMATE_START';
+export const UPDATE_INMATE_SUCCESS = 'UPDATE_INMATE_SUCCESS';
+export const UPDATE_INMATE_ERROR = 'UPDATE_INMATE_ERROR';
+
