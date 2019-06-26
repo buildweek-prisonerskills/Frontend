@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Add_Prison } from '../actions/Prisons';
 
 class PrisonLogin extends Component {
-	state = { prisonName: '', address: '' };
+	state = { name: '', address: '' };
 
 	onhandleChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -13,7 +13,7 @@ class PrisonLogin extends Component {
 		e.preventDefault();
 		const Prison = this.state;
 		this.props.Add_Prison(Prison);
-		this.setState({ prisonName: '', address: '' });
+		this.setState({ name: '', address: '' });
 	};
 
 	render() {
@@ -21,8 +21,7 @@ class PrisonLogin extends Component {
 			<div>
 				<h1>Create Account</h1>
 				<form>
-					Prison Name:{' '}
-					<input onChange={this.onhandleChange} type='text' name='prisonName' value={this.state.prisonName} />
+					Name: <input onChange={this.onhandleChange} type='text' name='name' value={this.state.name} />
 					Address:{' '}
 					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
 					<button>Create</button>
@@ -31,7 +30,7 @@ class PrisonLogin extends Component {
 				<h1>Login</h1>
 				<form>
 					Prison Name:{' '}
-					<input onChange={this.onhandleChange} type='text' name='prisonName' value={this.state.prisonName} />
+					<input onChange={this.onhandleChange} type='text' name='name' value={this.state.name} />
 					Address:{' '}
 					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
 					<button>Login</button>
