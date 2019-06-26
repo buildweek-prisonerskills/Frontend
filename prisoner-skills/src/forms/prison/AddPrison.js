@@ -1,58 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPrison } from 'react-redux';
-
-class PrisonForm extends Component {
+import { Add_Prison } from '../../actions/Prisons';
+class AddPrison extends Component {
 	state = {
+		id           : Date.now(),
 		name         : '',
-		work_release : '',
-		skills       : '',
-		facility_id  : '',
+		availability : '',
+		address      : '',
 	};
 
-	handleInputChange = e => {
+	onInputChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
-	handleAddPrison = e => {
-		e.preventDefault();
-
-		const prison = this.state;
-		this.props.addPrison(prison);
-
-		this.setState({
-			name         : '',
-			work_release : '',
-			skills       : '',
-			facility_id  : '',
-		});
-	};
+	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Prison(this.state), document.location.reload() ];
 
 	render() {
 		return (
 			<div className='PrisonForm'>
-				<form onSubmit={this.handleAddPrison}>
-					<input onChange={this.handleInputChange} placeholder='Name' value={this.state.name} name='name' />
+				<form onSubmit={this.onSubmitHandle}>
 					<input
-						onChange={this.handleInputChange}
-						placeholder='Work Release'
-						value={this.state.work_release}
-						name='work release'
+						onChange={this.onInputChange}
+						placeholder='Prison Name'
+						value={this.state.name}
+						name='name'
+						type='text'
 					/>
 					<input
-						onChange={this.handleInputChange}
-						placeholder='Skills'
-						value={this.state.skills}
-						name='skills'
+						onChange={this.onInputChange}
+						placeholder='Address'
+						value={this.state.address}
+						name='address'
+						type='text'
 					/>
-					<button type='submit'>Add a Prison</button>
+					<button>Add a Prison</button>
 				</form>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	prisons : state.prisons,
-});
-
-export default connect(mapStateToProps, { addPrison })(PrisonForm);
+export default connect(null, { Add_Prison })(AddPrison);

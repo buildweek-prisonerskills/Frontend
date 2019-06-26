@@ -14,7 +14,6 @@ componentDidMount(){
 
 
   render() {
-    console.log(this.props)
     return (
       <div>
        { this.props.prisoners.prisoners.map((inmate,i) =>{

@@ -24,7 +24,7 @@ const Prison = props => {
 
 						<td className='column'>
 							{' '}
-							<DeletePrison prisonIds={id} />{' '}
+							<DeletePrison prisonIds={id} />
 						</td>
 					</tr>
 				</tbody>
