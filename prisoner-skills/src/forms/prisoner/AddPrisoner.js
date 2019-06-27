@@ -6,7 +6,7 @@ class AddPrisoner extends Component {
 	state = {
 		name         : '',
 		facility_id  : Date.now(),
-		work_release : true,
+		work_release : '',
 		skills       : '',
 	};
 
@@ -14,17 +14,12 @@ class AddPrisoner extends Component {
 		this.setState({ [e.currentTarget.name]: e.currentTarget.value });
 	};
 
-	onSubmitHandle = e => [
-		e.preventDefault(),
-		console.log(this.state),
-		this.props.Add_Inmate(this.state),
-		document.location.reload(),
-	];
+	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state), document.location.reload() ];
 
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.onSubmitHandle}>
+				<form onSubmit={(console.log('Brackets', this.state.work_release), this.onSubmitHandle)}>
 					<div>
 						<input
 							type='text'
@@ -41,8 +36,8 @@ class AddPrisoner extends Component {
 							onChange={this.onInputChange}
 							name='workRelease'
 							value={this.state.work_release}
-							type='checkbox'
-							
+							type='text'
+							placeholder='Work Release'
 						/>
 					</div>
 

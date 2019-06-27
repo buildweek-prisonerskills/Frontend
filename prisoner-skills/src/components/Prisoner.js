@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import AddPrisoner from '../forms/prisoner/AddPrisoner';
 const Prisoner = props => {
 	const { name, id, work_release, skills } = props.inmate;
-	console.log(props);
 	return (
 		<div className='ui container'>
 			<table className='ui inverted blue table  '>
@@ -33,11 +32,9 @@ const Prisoner = props => {
 							{' '}
 							<Link to={`/inmates/${id}`}> update</Link>{' '}
 						</td>
-						
 					</tr>
 				</tbody>
 			</table>
-      
 		</div>
 	);
 };
