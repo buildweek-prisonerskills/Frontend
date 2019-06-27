@@ -110,3 +110,4 @@ export default connect(
   null,
   { Add_Inmate }
 )(AddPrisoner);
+
