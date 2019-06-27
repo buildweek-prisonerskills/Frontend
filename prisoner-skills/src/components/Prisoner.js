@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {Delete_Inmate} from '../actions/Prisoners'
 import DeleteButton from './DeleteBtn'
+import UpdateButton from './Updatebtn'
+import {Link} from 'react-router-dom'
 const Prisoner = (props) => {
    const{name ,id ,work_release,skills} = props.inmate
    console.log(props)
@@ -24,6 +26,7 @@ const Prisoner = (props) => {
       <td className="column">{work_release === 0 ? 'true' : 'false'}</td>
       <td className="column">{skills}</td>
       <td className="column"> <DeleteButton inmateIds={id}/> </td>
+      <td className="column"> <Link  to={`/inmates/${id}`}> update</Link> </td>
     </tr>
     
   </tbody>
