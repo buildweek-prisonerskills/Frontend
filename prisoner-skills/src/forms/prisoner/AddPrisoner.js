@@ -6,7 +6,7 @@ class AddPrisoner extends Component {
 	state = {
 		name         : '',
 		facility_id  : Date.now(),
-		work_release : 'False',
+		work_release : true,
 		skills       : '',
 	};
 
@@ -41,8 +41,8 @@ class AddPrisoner extends Component {
 							onChange={this.onInputChange}
 							name='workRelease'
 							value={this.state.work_release}
-							placeholder='Work Release'
 							type='checkbox'
+							
 						/>
 					</div>
 
