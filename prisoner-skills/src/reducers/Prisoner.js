@@ -91,7 +91,7 @@ const PrisonersData = (state = initialState, action) => {
       return { deletingPrisoners: false, error: action.payload };
     //UPDATEING
     case UPDATE_INMATE_START:
-      console.log("this one is from the reducer", action);
+
       return {
         ...state,
         updatingPrisoners: true,
