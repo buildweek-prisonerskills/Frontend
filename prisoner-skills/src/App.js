@@ -11,15 +11,15 @@ import Prisons from './components/Prisons';
 function App() {
 	return (
 		<div className='App'>
-			{/* <Route exact path='/' component={HomePage} /> */}
+		
 			<Route exact path='/inmates' component={Prisoners} />
-			<Route exact path='/prisons' component={Prisons} />
+			<Route exact path='/' component={Prisons} />
 			<Route exact path='/login' component={Login} />
 			<Route exact path='/signUp' component={SignUp} />
 
 			{/*<PrivateRoute exact path="/inmates" component={Prisoners} />*/}
 
-			<Route path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
+			<Route exact path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
 		</div>
 	);
 }
