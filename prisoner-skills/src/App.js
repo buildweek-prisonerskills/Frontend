@@ -1,17 +1,41 @@
 import React from 'react';
 import './App.scss';
-import Prisoners from './components/Prisoners';
+import Prisoners from './components/Prisoners'
 //import AddPrisoner from './forms/prisoner/AddPrisoner'
-import EditPrisoner from './forms/prisoner/EditPrisoner';
-import { Route } from 'react-router-dom';
+import EditPrisoner from './forms/prisoner/EditPrisoner'
+import {Route} from 'react-router-dom'
+//import Login from './components/Login'
+//import SignUp from './components/SignUp'
+import HomePage from './views/general/Homepage'
+//import PrivateRoute from './components/PrivateRoute'
 function App() {
+
+
+	
 	return (
 		<div className='App'>
-			<Route exact path='/inmates' component={Prisoners} />
+		
+		
+		<Route exact path='/' component={HomePage}/>
+		<Route exact path='/inmates' component={Prisoners}/>
+		{/*<Route exact path='/login' component={Login}/>
+		<Route exact path='/signUp' component={SignUp}/>*/}
+		
+		
+		
+	
+		<Route
+            
+            path='/inmates/:id'
+            render={props => <EditPrisoner {...props} />}
 
-			<Route path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
+
+			
+          />
+		
 		</div>
 	);
 }
 
 export default App;
+
