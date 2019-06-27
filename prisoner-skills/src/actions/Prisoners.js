@@ -25,7 +25,10 @@ export const Add_Inmate = inmate => dispatch => {
 			console.log(inmate);
 			dispatch({ type: ADD_INMATE_SUCCESS, payload: res.data });
 		})
-		.catch(err => dispatch({ type: ADD_INMATE_ERROR, payload: err.data }));
+		.catch(err => 
+			{console.log(inmate);
+			dispatch({ type: ADD_INMATE_ERROR, payload: err.data })}
+			);
 };
 
 //delete
