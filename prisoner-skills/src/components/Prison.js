@@ -34,3 +34,4 @@ const Prison = props => {
 };
 
 export default connect(null, { Delete_Prison })(Prison);
+

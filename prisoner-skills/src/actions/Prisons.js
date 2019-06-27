@@ -53,3 +53,4 @@ export const Update_Prison = prison => dispatch => {
 		.then(res => dispatch({ type: UPDATE_PRISON_SUCCESS, payload: prison }))
 		.catch(err => dispatch({ type: UPDATE_PRISON_ERROR, payload: err.data }));
 };
+
