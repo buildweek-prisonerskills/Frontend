@@ -14,6 +14,16 @@ class AddPrisoner extends Component {
 		this.setState({ [e.currentTarget.name]: e.currentTarget.value });
 	};
 
+	onFalse= ()=>{
+		this.setState({work_release:false})
+
+	}
+	onTrue= ()=>{
+		this.setState({work_release:true})
+
+	}
+
+
 	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state), document.location.reload() ];
 
 	render() {
@@ -35,10 +45,29 @@ class AddPrisoner extends Component {
 						<input
 							onChange={this.onInputChange}
 							name='workRelease'
-							value={this.state.work_release}
+							value={this.state.work_release ? 'true': 'false'}
 							type='text'
 							placeholder='Work Release'
 						/>
+
+<div class="inline fields">
+    <label>workRelease?</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input onClick={this.onFalse} type="radio" name="frequency" checked={this.state.work_release === false}/>
+        <label>false</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input onClick={this.onTrue} type="radio" name="frequency"  checked={this.state.work_release}    />
+        <label>true</label>
+      </div>
+    </div>
+  </div>
+
+
 					</div>
 
 					<div className='field'>
