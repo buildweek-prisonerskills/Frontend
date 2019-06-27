@@ -13,7 +13,7 @@ function App() {
 		<div className='App'>
 			{/* <Route exact path='/' component={HomePage} /> */}
 			<Route exact path='/inmates' component={Prisoners} />
-			<Route exact path='/prisons' component={Prisons} />
+			<Route exact path='/' component={HomePage} />
 			<Route exact path='/login' component={Login} />
 			<Route exact path='/signUp' component={SignUp} />
 
