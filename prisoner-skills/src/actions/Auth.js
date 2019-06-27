@@ -27,7 +27,9 @@ export const login = creds => dispatch => {
         dispatch({ type: LOGIN_SUCCESS });
         // dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
 
-        // return true;
+
+       return true;
+
       })
       .catch(err => console.log(err.response))
  
@@ -35,8 +37,8 @@ export const login = creds => dispatch => {
 
 export const signUp = creds => dispatch => {
   dispatch({ type: SIGNUP_START });
-  return (
-    axios
+  
+  return  axios
       
 
       .post(
@@ -48,9 +50,9 @@ export const signUp = creds => dispatch => {
         console.log(res.data);
         // localStorage.setItem("token", res.data.payload);
         dispatch({ type: SIGNUP_SUCCESS });
-        // return true;
+        return true;
       })
       .catch(err => console.log(err.response))
-  );
+  
 };
 

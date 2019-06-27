@@ -53,10 +53,6 @@ import {
 				error         : '',	
 			};	
 		case ADD_PRISON_SUCCESS:	
-			console.log(action.payload);	
-			const newPrisons = {	
-				prisons : action.payload,	
-			};	
 			return {	
 				...state,	
 				addingPrisons : false,	
