@@ -10,9 +10,33 @@ class SignUp extends Component {
     username: "",
     password: ""
   };
+  
+    componentDidMount() {
+      if (this.props.token) {
+        this.props.history.push("/inmates");
+      }
+    }
+    handleChanges = e => {
+      e.preventDefault();
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    };
+  
+    signUp = () => {
+      // console.log("sign up works");
+      this.props
+        .signUp({
+          username: this.state.username,
+          password: this.state.password
+        })
+        .then(() => {
+          this.props.history.push("/login");
+        });
+    };
   render() {
-
-
+    
+    
     
     return (
       <div>
@@ -77,30 +101,6 @@ class SignUp extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    if (this.props.token) {
-      this.props.history.push("/inmates");
-    }
-  }
-  handleChanges = e => {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  signUp = () => {
-    // console.log("sign up works");
-    this.props
-      .signUp({
-        username: this.state.username,
-        password: this.state.password
-      })
-      .then(() => {
-        this.props.history.push("/login");
-      });
-  };
 }
 
 const mapStateToProps = ({ token, loggingIn, error }) => ({

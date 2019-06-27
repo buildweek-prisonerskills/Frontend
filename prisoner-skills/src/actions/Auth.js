@@ -14,8 +14,8 @@ export const FETCH_MAPDATA_FAILURE = "FETCH_MAPDATA_FAILURE";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
-  return (
-    axios
+ 
+   return axios
       .post(
         "https://prisonerskills.herokuapp.com/api/auth/login",
         creds
@@ -27,10 +27,10 @@ export const login = creds => dispatch => {
         dispatch({ type: LOGIN_SUCCESS });
         // dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
 
-        // return true;
+       return true;
       })
       .catch(err => console.log(err.response))
-  );
+ 
 };
 
 export const signUp = creds => dispatch => {

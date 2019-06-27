@@ -23,15 +23,16 @@ class Login extends Component {
     });
   };
 
-  login = () => {
+  login = (e) => {
+    e.preventDefault()
     this.props
       .login({
         username: this.state.username,
         password: this.state.password
       })
-      .then(() => {
-        // this.props.history.push("login");
-        this.props.history.push("/inmates");
+      .then((res) => {
+        if(res){ this.props.history.push("/inmates");}
+       
       });
   };
 
@@ -42,7 +43,7 @@ class Login extends Component {
         <div className="column ui segment">
           <h1 className="ui teal header ">Login</h1>
 
-          <form style={{display:'flex', alignItems:'center',justifyContent:'center', width:'100%', marginTop:'5%'}} className="ui large form ui segment ">
+          <form onSubmit={this.login} style={{display:'flex', alignItems:'center',justifyContent:'center', width:'100%', marginTop:'5%'}} className="ui large form ui segment ">
             <div className="ui stacked segment">
               <div className="field">
                 <div className="ui left icon input">
