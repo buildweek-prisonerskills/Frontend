@@ -12,7 +12,7 @@ class NavPrisoner extends Component {
 					<Link to='/inmates'>
 						<a className='active item'>Inmates</a>
 					</Link>
-					<Link to='/prisons'>
+					<Link to='/'>
 						<a className='item'>Prisons</a>
 					</Link>
 					<div className='right menu'>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { GET_Inmate } from '../actions/Prisoners';
 import Prisoner from './Prisoner';
+import NavPrisoner from '../../components/nav/navPrison'
 
 class Prisoners extends Component {
 	static propTypes = {
