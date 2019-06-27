@@ -1,3 +1,4 @@
+
 import {
   GET_INMATE_START,
   GET_INMATE_ERROR,

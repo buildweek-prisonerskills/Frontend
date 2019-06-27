@@ -1,7 +1,20 @@
-import { GET_PRISON_START, GET_PRISON_ERROR, GET_PRISON_SUCCESS } from '../actions';
+import {
+	GET_PRISON_START,
+	GET_PRISON_ERROR,
+	GET_PRISON_SUCCESS,
+	ADD_PRISON_START,
+	ADD_PRISON_ERROR,
+	ADD_PRISON_SUCCESS,
+	DELETE_PRISON_ERROR,
+	DELETE_PRISON_START,
+	DELETE_PRISON_SUCCESS,
+	UPDATE_PRISON_ERROR,
+	UPDATE_PRISON_SUCCESS,
+	UPDATE_PRISON_START,
+} from '../actions';
 
 const initialState = {
-	prisoners       : [],
+	prisons         : [],
 	fetchingPrisons : false,
 	addingPrisons   : false,
 	updatingPrison  : false,
@@ -29,10 +42,69 @@ const PrisonsData = (state = initialState, action) => {
 		case GET_PRISON_ERROR: {
 			return {
 				...state,
-				fetchingPrison : false,
-				error          : '',
+				fetchingPrisons : false,
+				error           : '',
 			};
 		}
+		case ADD_PRISON_START:
+			return {
+				...state,
+				addingPrisons : true,
+				error         : '',
+			};
+		case ADD_PRISON_SUCCESS:
+			console.log(action.payload);
+			const newPrisons = {
+				prisons : action.payload,
+			};
+			return {
+				...state,
+				addingPrisons : false,
+				prisons       : [ ...state.prisons, action.payload ],
+			};
+		case ADD_PRISON_ERROR:
+			return {
+				...state,
+				addingPrisons : false,
+				error         : action.payload,
+			};
+		//add  end
+
+		// delete  start
+		case DELETE_PRISON_START:
+			console.log('this one is from the reducer', action);
+			return {
+				...state,
+				deletingPrisons : true,
+				error           : '',
+			};
+		case DELETE_PRISON_SUCCESS:
+			console.log('here', action.payload);
+			return {
+				...state,
+				prisons         : state.prisons.filter(prison => prison.id !== action.payload),
+				deletingPrisons : false,
+			};
+		case DELETE_PRISON_ERROR:
+			return { deletingPrisons: false, error: action.payload };
+		//UPDATEING
+		case UPDATE_PRISON_START:
+			console.log('this one is from the reducer', action);
+			return {
+				...state,
+				updatingPrisons : true,
+				error           : '',
+			};
+		case UPDATE_PRISON_SUCCESS:
+			console.log('here', action.payload);
+			return {
+				...state,
+				prisons         : state.prisons.filter(prison => prison.id !== action.payload),
+				updatingPrisons : false,
+			};
+		case UPDATE_PRISON_ERROR:
+			return { updatingPrisons: false, error: action.payload };
+
 		default:
 			return state;
 	}
