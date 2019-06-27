@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import PrisonersData from './Prisoner';
-import PrisonsData from './Prison';
+
+import PrisonData from './Prison';
+
 export default combineReducers({
 	prisoners : PrisonersData,
-	prison   : PrisonsData,
+	prison    : PrisonData,
+	
+
 });

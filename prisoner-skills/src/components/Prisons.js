@@ -24,6 +24,7 @@ class Prisons extends Component {
 }
 
 const mapStateToProps = state => {
+	
 	return {
 		prisons : state.prison,
 	};
