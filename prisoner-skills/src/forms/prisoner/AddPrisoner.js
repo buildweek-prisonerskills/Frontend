@@ -54,14 +54,14 @@ class AddPrisoner extends Component {
     <label>workRelease?</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input onClick={this.onFalse} type="radio" name="frequency" checked={this.state.work_release === false}/>
+        <input onClick={this.onFalse} onChange={this.onInputChange} type="radio" name="frequency" checked={this.state.work_release === false}/>
         <label>false</label>
       </div>
     </div>
 
     <div class="field">
       <div class="ui radio checkbox">
-        <input onClick={this.onTrue} type="radio" name="frequency"  checked={this.state.work_release}    />
+        <input onClick={this.onTrue} onChange={this.onInputChange} type="radio" name="frequency"  checked={this.state.work_release}    />
         <label>true</label>
       </div>
     </div>
@@ -89,3 +89,10 @@ class AddPrisoner extends Component {
 }
 
 export default connect(null, { Add_Inmate })(AddPrisoner);
+Collapse
+
+
+
+Jump
+Mark as read (esc)
+Message Input
