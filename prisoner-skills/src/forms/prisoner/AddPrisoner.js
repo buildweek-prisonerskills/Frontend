@@ -5,7 +5,7 @@ import { Add_Inmate } from '../../actions/Prisoners';
 class AddPrisoner extends Component {
 	state = {
 		name         : '',
-		facility_id  : '',
+		facility_id  : Date.now(),
 		work_release : '',
 		skills       : '',
 	};
@@ -13,6 +13,16 @@ class AddPrisoner extends Component {
 	onInputChange = e => {
 		this.setState({ [e.currentTarget.name]: e.currentTarget.value });
 	};
+
+	onFalse= ()=>{
+		this.setState({work_release:false})
+
+	}
+	onTrue= ()=>{
+		this.setState({work_release:true})
+
+	}
+
 
 	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state), document.location.reload() ];
 
@@ -34,22 +44,30 @@ class AddPrisoner extends Component {
 						{' '}
 						<input
 							onChange={this.onInputChange}
-							name='facility_Id'
-							value={this.state.facility_id}
-							placeholder='Facility Id'
-							type='number'
-						/>
-					</div>
-
-					<div className='field'>
-						{' '}
-						<input
-							onChange={this.onInputChange}
-							name='work_Release'
-							value={this.state.work_release}
+							name='workRelease'
+							value={this.state.work_release ? 'true': 'false'}
 							type='text'
 							placeholder='Work Release'
 						/>
+
+<div class="inline fields">
+    <label>workRelease?</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input onClick={this.onFalse} onChange={this.onInputChange} type="radio" name="frequency" checked={this.state.work_release === false}/>
+        <label>false</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input onClick={this.onTrue} onChange={this.onInputChange} type="radio" name="frequency"  checked={this.state.work_release}    />
+        <label>true</label>
+      </div>
+    </div>
+  </div>
+
+
 					</div>
 
 					<div className='field'>
@@ -71,3 +89,10 @@ class AddPrisoner extends Component {
 }
 
 export default connect(null, { Add_Inmate })(AddPrisoner);
+Collapse
+
+
+
+Jump
+Mark as read (esc)
+Message Input
