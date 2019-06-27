@@ -2,10 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Delete_Inmate } from '../actions/Prisoners';
 import DeleteButton from './DeleteBtn';
-import UpdateButton from './Updatebtn';
-import { Link } from 'react-router-dom';
-import AddPrisoner from '../forms/prisoner/AddPrisoner';
-const Prisoner = props => {
+import { Link } from 'react-router-dom';const Prisoner = props => {
 	const { name, id, work_release, skills } = props.inmate;
 	return (
 		<div className='ui container'>

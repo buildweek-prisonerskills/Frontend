@@ -1,48 +1,38 @@
 import React from 'react';
-//import Prisons from '../../components/Prisons';
-import { Link } from 'react-router-dom';
+import PrisonsHome from '../general/PrisonsHome';
+//import Inmate from '../general/inmatesHome'
+import { Link,Route } from 'react-router-dom';
 //import PrisonLogin from '../PrisonLogin';
 const Homepage = () => {
 	return (
 		<div>
-			{/*<nav>
-				<Link to='/prisonlogin' component={PrisonLogin}>
-					Prison Administration Login
-				</Link>
-				<Link to='/prisons' component={Homepage}>
-					Prisons
-				</Link>
-			</nav>
-			*/}
-			<div class='ui large top fixed hidden menu'>
-				<div class='ui container'>
-					<Link to='/' class='active item'>
-						Home
+				<div className='ui large top fixed hidden menu'>
+				<div className='ui container'>
+					
+					<Link to='/inmatesHome'>
+						<a className='item'>Inmates</a>
 					</Link>
-					<Link to='/inmates'>
-						<a class='item'>Inmates</a>
+					<Link to='/prisonsHome'>
+						<a className='active item'>Prisons</a>
 					</Link>
-					<Link to='/'>
-						<a class='item'>Prisons</a>
-					</Link>
-					<a class='item'>Careers</a>
-					<div class='right menu'>
-						<div class='item'>
-							<Link to='/login' class='ui button'>
+					<div className='right menu'>
+						<div className='item'>
+							<Link to='/login' className='ui button'>
 								Prison Login
 							</Link>
 						</div>
-						<div class='item'>
-							<Link to='/signUp' class='ui primary button'>
+						<div className='item'>
+							<Link to='/signUp' className='ui primary button'>
 								Prison Sign Up
 							</Link>
 						</div>
 					</div>
 				</div>
 			</div>
+			<Route path='/prisonsHome' component={PrisonsHome} />
+			
 		</div>
 	);
 };
 
 export default Homepage;
-

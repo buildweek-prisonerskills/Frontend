@@ -1,8 +1,6 @@
-
 import React from 'react';
 import './App.scss';
 import Prisoners from './components/Prisoners';
-import AddPrison from './forms/prison/AddPrison';
 import EditPrisoner from './forms/prisoner/EditPrisoner';
 import { Route } from 'react-router-dom';
 import Login from './components/Login';
@@ -13,16 +11,15 @@ import Prisons from './components/Prisons';
 function App() {
 	return (
 		<div className='App'>
-			<Route exact path='/' component={HomePage} />
+		
 			<Route exact path='/inmates' component={Prisoners} />
+			<Route exact path='/' component={Prisons} />
 			<Route exact path='/login' component={Login} />
-			<Route exact path='/signUp' component={SignUp} /> 
+			<Route exact path='/signUp' component={SignUp} />
 
 			{/*<PrivateRoute exact path="/inmates" component={Prisoners} />*/}
 
-			<Prisons />
-			<AddPrison />
-			<Route path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
+			<Route exact path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
 		</div>
 	);
 }
