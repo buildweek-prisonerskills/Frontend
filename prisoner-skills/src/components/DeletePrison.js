@@ -2,13 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Delete_Prison } from '../actions/Prisons';
 const DeletePrison = props => {
-	console.log('deletebtn', props);
+
+	console.log('delete button', props.prisonIds);
+
 	return (
 		<div>
 			<button
 				className='ui basic red button'
 				onClick={() => {
-					props.Delete_Prison(props);
+
+					props.Delete_Prison(props.prisonIds);
+
 				}}>
 				Delete
 			</button>

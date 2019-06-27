@@ -14,6 +14,7 @@ export {
 } from './Prisoners';
 
 export {
+
 	GET_PRISON_START,
 	GET_PRISON_SUCCESS,
 	GET_PRISON_ERROR,
@@ -27,3 +28,10 @@ export {
 	UPDATE_PRISON_START,
 	UPDATE_PRISON_SUCCESS,
 } from './Prisons';
+
+
+export {SIGNUP_FAILURE,
+SIGNUP_SUCCESS,
+	SIGNUP_START,LOGIN_FAILURE,LOGIN_SUCCESS,LOGIN_START
+}from './Auth'
+
