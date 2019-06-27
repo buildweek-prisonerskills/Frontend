@@ -89,10 +89,4 @@ class AddPrisoner extends Component {
 }
 
 export default connect(null, { Add_Inmate })(AddPrisoner);
-Collapse
 
-
-
-Jump
-Mark as read (esc)
-Message Input
