@@ -30,6 +30,3 @@ export {
 
 
 
-export {
-LOGIN_START,LOGIN_FAILURE,LOGIN_SUCCESS
-} from "./Login";

@@ -1,67 +1,107 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
+import React, { Component } from "react";
+import Loader from "react-loader-spinner";
+import { connect } from "react-redux";
 
-import { login } from '../actions/Login';
+import { login } from "../actions/Auth";
 
-class Login extends React.Component {
+class Login extends Component {
   state = {
-    credentials: {
-      username: '',
-      password: ''
+    creds: {
+      username: "",
+      password: ""
     }
   };
-
-  handleChange = e => {
+  componentDidMount() {
+    if (this.props.token) {
+      this.props.history.push("/inmates");
+    }
+  }
+  handleChanges = e => {
+    e.preventDefault();
     this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value
-      }
+      [e.target.name]: e.target.value
     });
   };
 
-  login = e => {
-    e.preventDefault();
-    this.props.login(this.state.credentials).then(res => {
-      if (res) {
-        this.props.history.push('/protected');
-      }
-    });
+  login = () => {
+    this.props
+      .login({
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(() => {
+        // this.props.history.push("login");
+        this.props.history.push("/inmates");
+      });
   };
 
   render() {
+    console.log(this.state);
     return (
-      <div>
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>
-            {this.props.loggingIn ? (
-              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
-            ) : (
-              'Log in'
-            )}
-          </button>
-        </form>
+      <div className="ui middle aligned center aligned grid ui segment">
+        <div className="column ui segment">
+          <h1 className="ui teal header ">Login</h1>
+
+          <form style={{display:'flex', alignItems:'center',justifyContent:'center', width:'100%', marginTop:'5%'}} className="ui large form ui segment ">
+            <div className="ui stacked segment">
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="user icon" />
+                  <input
+                    type="text"
+                    placeholder="username"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleChanges}
+                    className={
+                      this.props.error === true
+                        ? "error login-input"
+                        : "login-input"
+                    }
+                    required
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="lock icon" />
+                  <input
+                    type="password"
+                    placeholder="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChanges}
+                    className={
+                      this.props.error === true
+                        ? "error login-input"
+                        : "login-input"
+                    }
+                    required
+                  />
+                </div>
+              </div>
+              <button
+                className="ui fluid large teal submit button"
+                onClick={this.login}
+              >
+                {this.props.loggingIn === true ? (
+                  <Loader type="ThreeDots" color="#CCCFBC" />
+                ) : (
+                  "Log In"
+                )}
+              </button>{" "}
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  error: state.error,
-  loggingIn: state.loggingIn
+const mapStateToProps = ({ token, loggingIn, error }) => ({
+  token,
+  loggingIn,
+  error
 });
 
 export default connect(
