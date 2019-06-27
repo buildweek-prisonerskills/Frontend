@@ -4,10 +4,10 @@ import { Update_Prison } from '../../actions/Prisons';
 
 class EditPrison extends Component {
 	state = {
-		name         : '',
-		id           : Date.now(),
-		availability : '',
-		skills       : '',
+		name              : '',
+		id                : Date.now(),
+		available_inmates : '',
+		location          : '',
 	};
 
 	onInputChange = e => {
@@ -26,7 +26,7 @@ class EditPrison extends Component {
 
 					<div className='field'>
 						{' '}
-						<input onChange={this.onInputChange} name='skills' value={this.state.skills} />
+						<input onChange={this.onInputChange} name='location' value={this.state.location} />
 					</div>
 
 					<button>Update</button>

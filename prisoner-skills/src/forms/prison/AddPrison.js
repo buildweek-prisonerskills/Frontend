@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Add_Prison } from '../../actions/Prisons';
 class AddPrison extends Component {
 	state = {
-		id           : Date.now(),
-		name         : '',
-		availability : '',
-		address      : '',
+		id                : Date.now(),
+		name              : '',
+		available_inmates : '',
+		location          : '',
 	};
 
 	onInputChange = e => {
@@ -27,9 +27,9 @@ class AddPrison extends Component {
 					/>
 					<input
 						onChange={this.onInputChange}
-						placeholder='Address'
-						value={this.state.address}
-						name='address'
+						placeholder='location'
+						value={this.state.location}
+						name='location'
 						type='text'
 					/>
 					<button>Add a Prison</button>

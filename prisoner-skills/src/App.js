@@ -15,7 +15,7 @@ function App() {
 			<Route exact path='/' component={HomePage} />
 			<Route exact path='/inmates' component={Prisoners} />
 			<Route exact path='/login' component={Login} />
-			<Route exact path='/signUp' component={SignUp} />
+			<Route exact path='/signUp' component={SignUp} /> 
 
 			{/*<PrivateRoute exact path="/inmates" component={Prisoners} />*/}
 

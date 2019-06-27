@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Delete_Prison } from '../actions/Prisons';
-import DeletePrison from './DeleteBtn';
+import DeletePrison from './DeletePrison';
 
 const Prison = props => {
-	const { name, id, availability, location } = props.prison;
+	const { name, id, available_inmates, location } = props.prison;
 	console.log('Almost Fixed', props);
 	return (
 		<div className='ui container'>
@@ -20,7 +20,7 @@ const Prison = props => {
 					<tr className=' row'>
 						<td className='column'>{name}</td>
 						<td className='column'>{location}</td>
-						<td className='column'>{availability}</td>
+						<td className='column'>{available_inmates}</td>
 
 						<td className='column'>
 							{' '}
