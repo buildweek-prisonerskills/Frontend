@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './App.scss';
 import Prisoners from './components/Prisoners'
@@ -38,3 +39,4 @@ function App() {
 }
 
 export default App;
+
