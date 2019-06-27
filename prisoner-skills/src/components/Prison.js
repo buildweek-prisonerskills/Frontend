@@ -1,7 +1,7 @@
 import React from 'react';	
 import { connect } from 'react-redux';	
 import { Delete_Prison } from '../actions/Prisons';	
-import DeletePrison from './DeleteBtn';	
+import DeletePrison from './DeletePrison';	
 
  const Prison = props => {	
 	const { name, id, availability, location } = props.prison;	

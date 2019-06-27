@@ -32,9 +32,9 @@ export const DELETE_PRISON_ERROR = 'DELETE_PRISON_ERROR';
 export const Delete_Prison = ({ prisonIds }) => dispatch => {	
 	dispatch({ type: DELETE_PRISON_START });	
 	console.log('looking for id', prisonIds);	
-	axios	
+ return	axios	
 		.post(`https://prisonerskills.herokuapp.com/api/facilities/${prisonIds}`)	
-		.then(res => dispatch({ type: DELETE_PRISON_SUCCESS, payload: prisonIds }))	
+		.then(res => {dispatch({ type: DELETE_PRISON_SUCCESS, payload: prisonIds });return true})	
 		.catch(err => dispatch({ type: DELETE_PRISON_ERROR, payload: err.data }));	
 };	
 
