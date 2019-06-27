@@ -1,73 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Add_Prison } from '../actions/Prisons';
 
-import Loader from 'react-loader-spinner';
+class PrisonLogin extends Component {
+	state = { name: '', address: '' };
 
-import { login } from '../actions';
+	onhandleChange = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
 
-class Login extends React.Component {
-  state = {
-    credentials: {
-      username: '',
-      password: ''
-    }
-  };
+	handleAddPrison = e => {
+		e.preventDefault();
+		const Prison = this.state;
+		this.props.Add_Prison(Prison);
+		this.setState({ name: '', address: '' });
+	};
 
-  handleChange = e => {
-    this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
+	render() {
+		return (
+			<div>
+				<h1>Create Account</h1>
+				<form>
+					Name: <input onChange={this.onhandleChange} type='text' name='name' value={this.state.name} />
+					Address:{' '}
+					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
+					<button>Create</button>
+				</form>
 
-  login = e => {
-    e.preventDefault();
-    this.props.login(this.state.credentials).then(res => {
-      if (res) {
-        this.props.history.push('/protected');
-      }
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>
-            {this.props.loggingIn ? (
-              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
-            ) : (
-              'Log in'
-            )}
-          </button>
-        </form>
-      </div>
-    );
-  }
-
+				<h1>Login</h1>
+				<form>
+					Prison Name:{' '}
+					<input onChange={this.onhandleChange} type='text' name='name' value={this.state.name} />
+					Address:{' '}
+					<input onChange={this.onhandleChange} name='Address' type='text' value={this.state.address} />
+					<button>Login</button>
+				</form>
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = state => ({
-  error: state.error,
-  loggingIn: state.loggingIn
-});
+const mapStateToProps = state => {
+	return {
+		prisons : state.prisons,
+	};
+};
 
-export default connect(
-  mapStateToProps,
-  { login }
-)(Login);
-
+export default connect(mapStateToProps, { Add_Prison })(PrisonLogin);

@@ -14,7 +14,6 @@ export {
 } from './Prisoners';
 
 export {
-
 	GET_PRISON_START,
 	GET_PRISON_SUCCESS,
 	GET_PRISON_ERROR,
@@ -28,4 +27,3 @@ export {
 	UPDATE_PRISON_START,
 	UPDATE_PRISON_SUCCESS,
 } from './Prisons';
-
