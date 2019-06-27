@@ -5,7 +5,7 @@ import { Update_Inmate, GET_Inmate } from '../../actions/Prisoners';
  class UpdatePrisoner extends Component {	
 	state = {	
 		name         : '',	
-		facility_id  : Date.now(),	
+		facility_id  : '',	
 		work_release : 'False',	
 		skills       : '',	
 	};	

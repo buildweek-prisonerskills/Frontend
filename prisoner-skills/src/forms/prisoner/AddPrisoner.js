@@ -5,7 +5,7 @@ import { Add_Inmate } from '../../actions/Prisoners';
 class AddPrisoner extends Component {
 	state = {
 		name         : '',
-		facility_id  : Date.now(),
+		facility_id  : '',
 		work_release : '',
 		skills       : '',
 	};
@@ -34,7 +34,18 @@ class AddPrisoner extends Component {
 						{' '}
 						<input
 							onChange={this.onInputChange}
-							name='workRelease'
+							name='facility_Id'
+							value={this.state.facility_id}
+							placeholder='Facility Id'
+							type='number'
+						/>
+					</div>
+
+					<div className='field'>
+						{' '}
+						<input
+							onChange={this.onInputChange}
+							name='work_Release'
 							value={this.state.work_release}
 							type='text'
 							placeholder='Work Release'
