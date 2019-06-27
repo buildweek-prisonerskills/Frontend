@@ -5,9 +5,10 @@ import { Add_Inmate } from '../../actions/Prisoners';
 class AddPrisoner extends Component {
 	state = {
 		name         : '',
-		facility_id  : Date.now(),
+
 		work_release : '',
 		skills       : '',
+		facility_id  : '',
 	};
 
 	onInputChange = e => {
@@ -21,12 +22,13 @@ class AddPrisoner extends Component {
 		this.setState({ work_release: true });
 	};
 
-	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state), document.location.reload() ];
+	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state) ];
 
 	render() {
+		console.log(this.state);
 		return (
 			<div>
-				<form onSubmit={(console.log('Brackets', this.state.work_release), this.onSubmitHandle)}>
+				<form onSubmit={this.onSubmitHandle}>
 					<div>
 						<input
 							type='text'
@@ -83,6 +85,16 @@ class AddPrisoner extends Component {
 							name='skills'
 							value={this.state.skills}
 							placeholder='Skills'
+							type='text'
+						/>
+					</div>
+					<div className='field'>
+						{' '}
+						<input
+							onChange={this.onInputChange}
+							name='facility_id'
+							value={this.state.facility_id}
+							placeholder='facility_id'
 							type='text'
 						/>
 					</div>

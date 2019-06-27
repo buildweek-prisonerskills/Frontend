@@ -7,11 +7,9 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import HomePage from './views/general/Homepage';
 //import PrivateRoute from './components/PrivateRoute'
-import Prisons from './components/Prisons';
 function App() {
 	return (
 		<div className='App'>
-			{/* <Route exact path='/' component={HomePage} /> */}
 			<Route exact path='/inmates' component={Prisoners} />
 			<Route exact path='/' component={HomePage} />
 			<Route exact path='/login' component={Login} />
@@ -19,7 +17,7 @@ function App() {
 
 			{/*<PrivateRoute exact path="/inmates" component={Prisoners} />*/}
 
-			<Route path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
+			<Route exact path='/inmates/:id' render={props => <EditPrisoner {...props} />} />
 		</div>
 	);
 }
