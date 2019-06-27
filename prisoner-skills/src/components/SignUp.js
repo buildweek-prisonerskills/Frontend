@@ -32,8 +32,9 @@ class SignUp extends Component {
         password: this.state.password,
         facility_id: this.state.facility_id
       })
-      .then(() => {
-        this.props.history.push("/login");
+      .then((res) => {
+if(res){this.props.history.push("/login");}
+        
       });
   };
   render() {
