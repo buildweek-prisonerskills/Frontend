@@ -5,10 +5,10 @@ import { Add_Inmate } from '../../actions/Prisoners';
 class AddPrisoner extends Component {
 	state = {
 		name         : '',
-
 		work_release : '',
 		skills       : '',
-		facility_id  : '',
+		facility_id  : Date.now(),
+		id           : Date.now(),
 	};
 
 	onInputChange = e => {
@@ -43,52 +43,13 @@ class AddPrisoner extends Component {
 						{' '}
 						<input
 							onChange={this.onInputChange}
-							name='workRelease'
-							value={this.state.work_release ? 'true' : 'false'}
-							type='text'
-							placeholder='Work Release'
-						/>
-						<div class='inline fields'>
-							<label>workRelease?</label>
-							<div class='field'>
-								<div class='ui radio checkbox'>
-									<input
-										onClick={this.onFalse}
-										onChange={this.onInputChange}
-										type='radio'
-										name='frequency'
-										checked={this.state.work_release === false}
-									/>
-									<label>false</label>
-								</div>
-							</div>
-
-							<div class='field'>
-								<div class='ui radio checkbox'>
-									<input
-										onClick={this.onTrue}
-										onChange={this.onInputChange}
-										type='radio'
-										name='frequency'
-										checked={this.state.work_release}
-									/>
-									<label>true</label>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div className='field'>
-						{' '}
-						<input
-							onChange={this.onInputChange}
 							name='skills'
 							value={this.state.skills}
 							placeholder='Skills'
 							type='text'
 						/>
 					</div>
-					<div className='field'>
+					{/* <div className='field'>
 						{' '}
 						<input
 							onChange={this.onInputChange}
@@ -97,7 +58,46 @@ class AddPrisoner extends Component {
 							placeholder='facility_id'
 							type='text'
 						/>
-					</div>
+          </div> */}
+
+					{/* <div className="field">
+            {" "}
+            <input
+              onChange={this.onInputChange}
+              name="workRelease"
+              value={this.state.work_release ? "true" : "false"}
+              type="text"
+              placeholder="Work Release"
+            />
+            <div class="inline fields">
+              <label>workRelease?</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    onClick={this.onFalse}
+                    onChange={this.onInputChange}
+                    type="radio"
+                    name="frequency"
+                    checked={this.state.work_release === false}
+                  />
+                  <label>false</label>
+                </div>
+              </div> */}
+
+					{/* <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    onClick={this.onTrue}
+                    onChange={this.onInputChange}
+                    type="radio"
+                    name="frequency"
+                    checked={this.state.work_release}
+                  />
+                  <label>true</label>
+                </div>
+              </div>
+            </div>
+          </div> */}
 
 					<button>Add</button>
 				</form>

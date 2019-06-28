@@ -68,14 +68,12 @@ import {
 
  		// delete  start	
 		case DELETE_PRISON_START:	
-			console.log('this one is from the reducer', action);	
 			return {	
 				...state,	
 				deletingPrisons : true,	
 				error           : '',	
 			};	
 		case DELETE_PRISON_SUCCESS:	
-			console.log('here', action.payload);	
 			return {	
 				...state,	
 				prisons         : state.prisons.filter(prison => prison.id !== action.payload),	
@@ -85,14 +83,12 @@ import {
 			return { deletingPrisons: false, error: action.payload };	
 		//UPDATEING	
 		case UPDATE_PRISON_START:	
-			console.log('this one is from the reducer', action);	
 			return {	
 				...state,	
 				updatingPrisons : true,	
 				error           : '',	
 			};	
 		case UPDATE_PRISON_SUCCESS:	
-			console.log('here', action.payload);	
 			return {	
 				...state,	
 				prisons         : state.prisons.filter(prison => prison.id !== action.payload),	
