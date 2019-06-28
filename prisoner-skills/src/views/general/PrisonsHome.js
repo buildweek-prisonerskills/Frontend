@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { GET_Prison } from '../../actions/Prisons';
 import { GET_Inmate } from '../../actions/Prisoners';
 import Prison from './PrisonHome';
-
-import NavPrison from '../../components/nav/navPrison';
+import navHome from '../../components/nav/navHome'
+import {Route} from 'react-router-dom'
 
 class Prisons extends Component {
 	static propTypes = {
@@ -13,18 +13,30 @@ class Prisons extends Component {
 	};
 
 	componentDidMount() {
-		this.props.GET_Prison();this.props.GET_Inmate()
+		this.props.GET_Prison()
 	}
 
 	render() {
 		console.log('hello',this.props.prisoner)
 		return (
-			<div>
-				<NavPrison />
-				{this.props.prisons.prisons.map((prison, I) => {
-					return <Prison key={I} prison={prison} prisoner={this.props.prisoner} />;
-				})}
+			<div  className="pusher">
+		<div className="ui  vertical masthead center aligned segment">
+
+		<Route  component={navHome}/>
+
+
+	<div className="ui text container">
 			
+				{this.props.prisons.prisons.map((prison, I) => {
+					return <Prison key={I}  prison={prison} />;
+				})}
+
+
+
+				</div>
+
+
+			</div>
 			</div>
 		);
 	}
