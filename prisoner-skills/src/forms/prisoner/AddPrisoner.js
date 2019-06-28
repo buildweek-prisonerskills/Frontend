@@ -1,66 +1,46 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Add_Inmate } from '../../actions/Prisoners';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Add_Inmate } from "../../actions/Prisoners";
 
 class AddPrisoner extends Component {
-	state = {
-		name         : '',
-		work_release : '',
-		skills       : '',
-		facility_id  : Date.now(),
-		id           : Date.now(),
-	};
+  state = {
+    name: "",
 
-	onInputChange = e => {
-		this.setState({ [e.currentTarget.name]: e.currentTarget.value });
-	};
+    work_release: "",
+    skills: "",
+    facility_id: ""
+  };
 
-	onFalse = () => {
-		this.setState({ work_release: false });
-	};
-	onTrue = () => {
-		this.setState({ work_release: true });
-	};
+  onInputChange = e => {
+    this.setState({ [e.currentTarget.name]: e.currentTarget.value });
+  };
 
-	onSubmitHandle = e => [ e.preventDefault(), this.props.Add_Inmate(this.state) ];
+  onFalse = () => {
+    this.setState({ work_release: false });
+  };
+  onTrue = () => {
+    this.setState({ work_release: true });
+  };
 
-	render() {
-		console.log(this.state);
-		return (
-			<div>
-				<form onSubmit={this.onSubmitHandle}>
-					<div>
-						<input
-							type='text'
-							onChange={this.onInputChange}
-							name='name'
-							value={this.state.name}
-							placeholder='Prisoner Name'
-						/>
-					</div>
+  onSubmitHandle = e => [e.preventDefault(), this.props.Add_Inmate(this.state)];
 
-					<div className='field'>
-						{' '}
-						<input
-							onChange={this.onInputChange}
-							name='skills'
-							value={this.state.skills}
-							placeholder='Skills'
-							type='text'
-						/>
-					</div>
-					{/* <div className='field'>
-						{' '}
-						<input
-							onChange={this.onInputChange}
-							name='facility_id'
-							value={this.state.facility_id}
-							placeholder='facility_id'
-							type='text'
-						/>
-          </div> */}
+  render() {
+	  console.log(this.state)
+    return (
+      <div>
+        <form className='ui form' onSubmit={this.onSubmitHandle}>
+          <div  className="two fields">
+          <div className="field">
+            <input
+              type="text"
+              onChange={this.onInputChange}
+              name="name"
+              value={this.state.name}
+              placeholder="Prisoner Name"
+            />
+          </div>
 
-					{/* <div className="field">
+          <div className="field">
             {" "}
             <input
               onChange={this.onInputChange}
@@ -69,10 +49,10 @@ class AddPrisoner extends Component {
               type="text"
               placeholder="Work Release"
             />
-            <div class="inline fields">
+            <div className="inline fields">
               <label>workRelease?</label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input
                     onClick={this.onFalse}
                     onChange={this.onInputChange}
@@ -81,11 +61,11 @@ class AddPrisoner extends Component {
                     checked={this.state.work_release === false}
                   />
                   <label>false</label>
-                </div>
-              </div> */}
+                </div></div>
+              </div>
 
-					{/* <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input
                     onClick={this.onTrue}
                     onChange={this.onInputChange}
@@ -97,13 +77,37 @@ class AddPrisoner extends Component {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
-					<button>Add</button>
-				</form>
-			</div>
-		);
-	}
+          <div className="field">
+            {" "}
+            <input
+              onChange={this.onInputChange}
+              name="skills"
+              value={this.state.skills}
+              placeholder="Skills"
+              type="text"
+            />
+          </div>
+          <div className="field">
+            {" "}
+            <input
+              onChange={this.onInputChange}
+              name="facility_id"
+              value={this.state.facility_id}
+              placeholder="facility_id"
+              type="text"
+            />
+          </div>
+
+          <button className='ui button green'  >Add</button>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default connect(null, { Add_Inmate })(AddPrisoner);
+export default connect(
+  null,
+  { Add_Inmate }
+)(AddPrisoner);

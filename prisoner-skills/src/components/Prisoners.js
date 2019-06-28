@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { GET_Inmate } from '../actions/Prisoners';
 import Prisoner from './Prisoner';
 import AddPrisoner from '../forms/prisoner/AddPrisoner';
-import NavPrisoner from '../components/nav/navPrisoner';
+import {Link} from 'react-router-dom'
+//import NavPrisoner from '../components/nav/navPrisoner';
 class Prisoners extends Component {
 	static propTypes = {
 		prop : PropTypes.string,
@@ -18,11 +19,11 @@ class Prisoners extends Component {
 		console.log('priosn.js history', this);
 		return (
 			<div>
-				<NavPrisoner />
+				
 				{this.props.prisoners.prisoners.map((inmate, i) => {
 					return <Prisoner key={i} inmate={inmate} />;
 				})}
-				<AddPrisoner />
+				
 			</div>
 		);
 	}
