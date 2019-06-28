@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.scss';
 class NavPrison extends Component {
 	render() {
 		console.log('priosn.js history', this);
 		return (
-			<div className='ui large top fixed hidden menu'>
+			<div className='ui large top fixed hidden menu mvp'>
 				<div className='ui container'>
 					{/* <Link to='/'>
 						<a className='item'>Home</a>

@@ -93,7 +93,7 @@ import {
 			};	
 		case UPDATE_PRISON_SUCCESS:	
 			console.log('here', action.payload);
-			const newPrisons = state.prisoners.filter(inmate => inmate.id !== action.payload.id);	
+			const newPrisons = state.prisons.filter(inmate => inmate.id !== action.payload.id);	
 			return {	
 				...state,	
 				prisons         : [...newPrisons,action.payload],	
@@ -108,3 +108,4 @@ import {
 };	
 
  export default PrisonsData;	
+

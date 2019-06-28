@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 import Rotate from 'react-reveal/Rotate';
 const Prison = props => {
 	const { name, id,  location } = props.prison;
-	console.log('Almost Fixed', props.prisoner.prisoners);
 
 	return (
 		<Rotate bottom right>

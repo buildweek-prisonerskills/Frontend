@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';	
 import { connect } from 'react-redux';	
 import { Update_Inmate, GET_Inmate } from '../../actions/Prisoners';	

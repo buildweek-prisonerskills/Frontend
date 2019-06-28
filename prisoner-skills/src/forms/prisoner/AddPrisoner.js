@@ -28,8 +28,9 @@ class AddPrisoner extends Component {
 	  console.log(this.state)
     return (
       <div>
-        <form onSubmit={this.onSubmitHandle}>
-          <div>
+        <form className='ui form' onSubmit={this.onSubmitHandle}>
+          <div  className="two fields">
+          <div className="field">
             <input
               type="text"
               onChange={this.onInputChange}
@@ -60,7 +61,7 @@ class AddPrisoner extends Component {
                     checked={this.state.work_release === false}
                   />
                   <label>false</label>
-                </div>
+                </div></div>
               </div>
 
               <div className="field">
@@ -99,7 +100,7 @@ class AddPrisoner extends Component {
             />
           </div>
 
-          <button>Add</button>
+          <button className='ui button green'  >Add</button>
         </form>
       </div>
     );
@@ -110,4 +111,3 @@ export default connect(
   null,
   { Add_Inmate }
 )(AddPrisoner);
-
