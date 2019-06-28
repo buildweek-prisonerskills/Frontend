@@ -7,7 +7,8 @@ import { Link,Route } from 'react-router-dom';
 const Homepage = () => {
 	return (
 		<div>
-				<div className='ui large top fixed hidden menu'>
+				<div className='ui large top fixed hidden menu mvp
+				'>
 				<div className='ui container'>
 					
 					<Link to='/inmatesHome'>

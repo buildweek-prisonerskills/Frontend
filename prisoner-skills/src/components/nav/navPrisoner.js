@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.scss';
 class NavPrisoner extends Component {
 	render() {
 		console.log('priosn.js history', this);

@@ -5,7 +5,6 @@ import DeletePrison from './DeletePrison';
 
 const Prison = props => {
 	const { name, id,  location } = props.prison;
-	console.log('Almost Fixed', props.prisoner.prisoners);
 
 	return (
 		<div className='ui container'>
