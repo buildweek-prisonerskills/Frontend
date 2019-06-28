@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
 const Prison = props => {
-	const { name, id,  location } = props.prison;
+	const { name, id, location } = props.prison;
 	console.log('Almost Fixed', props.prisoner.prisoners);
 
 	return (
@@ -20,12 +19,11 @@ const Prison = props => {
 					<tr className=' row'>
 						<td className='column'>{name}</td>
 						<td className='column'>{location}</td>
-						<td className='column'>{ id === props.prisoner.facility_id ? props.prisoner.facility_id.length: 0 } </td>
-
 						<td className='column'>
-							{' '}
-							
+							{id === props.prisoner.facility_id ? props.prisoner.facility_id.length : 0}{' '}
 						</td>
+
+						<td className='column'> </td>
 					</tr>
 				</tbody>
 			</table>
@@ -33,5 +31,4 @@ const Prison = props => {
 	);
 };
 
-export default connect(null, {  })(Prison);
-
+export default connect(null, {})(Prison);
