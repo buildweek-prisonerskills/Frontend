@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Delete_Inmate } from '../actions/Prisoners';
 import DeleteButton from './DeleteBtn';
+import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';const Prisoner = props => {
 	const { name, id, work_release, skills } = props.inmate;
 	return (
-		<div className='ui container'>
+		<Fade left>
+		<div  style={{margin:'5% 9%'}} className='ui container'>
 			<table className='ui inverted blue table  '>
 				<thead className='ui four column grid'>
 					<tr className=' row'>
@@ -27,12 +29,12 @@ import { Link } from 'react-router-dom';const Prisoner = props => {
 						</td>
 						<td className='column'>
 							{' '}
-							<Link to={`/inmates/${id}`}> update</Link>{' '}
+							<Link className='button ui basic green' to={`/MainAdmin/UpdateInmate/${id}`}> update</Link>{' '}
 						</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div></Fade>
 	);
 };
 

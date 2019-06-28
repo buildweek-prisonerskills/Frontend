@@ -34,7 +34,7 @@ import { Update_Inmate, GET_Inmate } from '../../actions/Prisoners';
 		console.log(this.state),	
 		this.props.Update_Inmate(this.state).then(res => {	
 			if (res) {	
-				this.props.history.push('/inmates');	
+				this.props.history.push('/MainAdmin/inmates');	
 			}	
 		}),	
 	];	

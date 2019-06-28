@@ -5,10 +5,10 @@ export const GET_PRISON_SUCCESS = ' GET_PRISON_SUCCESS';
 export const GET_PRISON_ERROR = 'GET_PRISON_ERROR';
 export const GET_Prison = id => dispatch => {
 	dispatch({ type: GET_PRISON_START });
-	axios
+	return axios
 		.get('https://prisonerskills.herokuapp.com/api/facilities')
-		.then(res => {
-			dispatch({ type: GET_PRISON_SUCCESS, payload: res.data });
+		.then(res => { console.log('success',res.data)
+			dispatch({ type: GET_PRISON_SUCCESS, payload: res.data });return true
 		})
 		.catch(err => dispatch({ type: GET_PRISON_ERROR, payload: err.data }));
 };
@@ -48,9 +48,9 @@ export const UPDATE_PRISON_ERROR = 'UPDATE_PRISON_ERROR';
 export const Update_Prison = prison => dispatch => {
 	dispatch({ type: UPDATE_PRISON_START });
 	console.log('looking for id', prison);
-	axios
+	return axios
 		.put(`https://prisonerskills.herokuapp.com/api/facilities/${prison.id}`, prison)
-		.then(res => dispatch({ type: UPDATE_PRISON_SUCCESS, payload: prison }))
+		.then(res =>{ dispatch({ type: UPDATE_PRISON_SUCCESS, payload: prison });return true})
 		.catch(err => dispatch({ type: UPDATE_PRISON_ERROR, payload: err.data }));
 };
 

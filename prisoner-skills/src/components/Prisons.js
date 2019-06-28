@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { GET_Prison } from '../actions/Prisons';
-import { GET_Inmate } from '../actions/Prisoners';
+
 import Prison from './Prison';
 import { Link } from 'react-router-dom';
 import AddPrison from '../forms/prison/AddPrison';
-import NavPrison from '../components/nav/navPrison';
+//import NavPrison from '../components/nav/navPrison';
 
 class Prisons extends Component {
 	static propTypes = {
@@ -14,14 +14,16 @@ class Prisons extends Component {
 	};
 
 	componentDidMount() {
-		this.props.GET_Prison();this.props.GET_Inmate()
+		this.props.GET_Prison()
 	}
 
 	render() {
 		console.log('hello',this.props.prisoner)
 		return (
 			<div>
-				<NavPrison />
+					<div >
+			
+			</div>
 				{this.props.prisons.prisons.map((prison, I) => {
 					return <Prison key={I} prison={prison} prisoner={this.props.prisoner} />;
 				})}
@@ -40,4 +42,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { GET_Prison ,GET_Inmate})(Prisons);
+export default connect(mapStateToProps, { GET_Prison })(Prisons);
