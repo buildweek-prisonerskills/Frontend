@@ -17,23 +17,27 @@ class AddPrison extends Component {
 	render() {
 		return (
 			<div className='PrisonForm'>
-				<form onSubmit={this.onSubmitHandle}>
+			<h1>AddPrison</h1>
+				<form style={{display:'flex',justifyContent:'center',flexDirection:'column'}} className='ui form' onSubmit={this.onSubmitHandle}>
+				<div className="two fields">
+				<div className='field'>
 					<input
 						onChange={this.onInputChange}
 						placeholder='Prison Name'
 						value={this.state.name}
 						name='name'
 						type='text'
-					/>
+					/></div>
+					<div className='field'>
 					<input
 						onChange={this.onInputChange}
 						placeholder='location'
 						value={this.state.location}
 						name='location'
 						type='text'
-					/>
-					<button>Add a Prison</button>
-				</form>
+					/></div>
+					<button className='ui button green'>Add a Prison</button>
+			</div>	</form>
 			</div>
 		);
 	}

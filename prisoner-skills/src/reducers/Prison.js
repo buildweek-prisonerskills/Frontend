@@ -92,10 +92,11 @@ import {
 				error           : '',	
 			};	
 		case UPDATE_PRISON_SUCCESS:	
-			console.log('here', action.payload);	
+			console.log('here', action.payload);
+			const newPrisons = state.prisoners.filter(inmate => inmate.id !== action.payload.id);	
 			return {	
 				...state,	
-				prisons         : state.prisons.filter(prison => prison.id !== action.payload),	
+				prisons         : [...newPrisons,action.payload],	
 				updatingPrisons : false,	
 			};	
 		case UPDATE_PRISON_ERROR:	

@@ -48,10 +48,10 @@ class AddPrisoner extends Component {
               type="text"
               placeholder="Work Release"
             />
-            <div class="inline fields">
+            <div className="inline fields">
               <label>workRelease?</label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input
                     onClick={this.onFalse}
                     onChange={this.onInputChange}
@@ -63,8 +63,8 @@ class AddPrisoner extends Component {
                 </div>
               </div>
 
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input
                     onClick={this.onTrue}
                     onChange={this.onInputChange}

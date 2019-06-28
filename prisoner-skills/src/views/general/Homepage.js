@@ -1,35 +1,48 @@
 import React from 'react';
-import PrisonsHome from '../general/PrisonsHome';
-//import Inmate from '../general/inmatesHome'
-import { Link,Route } from 'react-router-dom';
+import Zoom from 'react-reveal/Zoom';
+import { Link,NavLink } from 'react-router-dom';
 //import PrisonLogin from '../PrisonLogin';
+import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 const Homepage = () => {
 	return (
 		<div>
-				<div className='ui large top fixed hidden menu'>
-				<div className='ui container'>
-					
-					<Link to='/inmatesHome'>
-						<a className='item'>Inmates</a>
-					</Link>
-					<Link to='/prisonsHome'>
-						<a className='active item'>Prisons</a>
-					</Link>
-					<div className='right menu'>
-						<div className='item'>
-							<Link to='/login' className='ui button'>
-								Prison Login
-							</Link>
-						</div>
-						<div className='item'>
-							<Link to='/signUp' className='ui primary button'>
-								Prison Sign Up
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-			<Route path='/prisonsHome' component={PrisonsHome} />
+				<div className="pushable">
+
+
+
+<Zoom>
+<div style={{marginTop:'10%'}} className="pusher">
+  <div className="ui  vertical masthead center aligned segment">
+
+    <div className="ui text container">
+      <h1 className="ui header">
+      <Slide right>
+	  <img style={{width:'40%'}} alt='p' src={require('../../components/utils/logo.png')} /></Slide>
+      </h1>
+      <Fade right big cascade>
+      <h2>Hire workers .</h2></Fade>
+      <Link  to='/prisionDefault' className="ui huge primary button">Get Started <i className="right arrow icon"></i></Link>
+    </div>
+
+  </div>
+
+
+
+
+ 
+
+
+ 
+
+  
+</div>
+
+</Zoom>
+
+
+</div>
+			
 			
 		</div>
 	);

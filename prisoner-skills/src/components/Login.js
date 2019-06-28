@@ -13,7 +13,7 @@ class Login extends Component {
   };
   componentDidMount() {
     if (this.props.token) {
-      this.props.history.push("/inmates");
+      this.props.history.push("/MainAdmin");
     }
   }
   handleChanges = e => {
@@ -32,7 +32,7 @@ class Login extends Component {
       })
       .then(res => {
         if (res) {
-          this.props.history.push("/inmates");
+          this.props.history.push("/MainAdmin");
         }
       });
   };
