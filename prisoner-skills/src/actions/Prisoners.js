@@ -30,7 +30,7 @@ export const Add_Inmate = inmate => dispatch => {
 export const DELETE_INMATE_START = 'DELETE_INMATE_START';
 export const DELETE_INMATE_SUCCESS = ' DELETE_INMATE_SUCCESS';
 export const DELETE_INMATE_ERROR = 'DELETE_INMATE_ERROR';
-export const Delete_Inmate = ({ inmateIds }) => dispatch => {
+export const Delete_Inmate =  inmateIds => dispatch => {
 	dispatch({ type: DELETE_INMATE_START });
 	console.log('looking for id', inmateIds);
 	return axios

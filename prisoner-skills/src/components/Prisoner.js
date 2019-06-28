@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Delete_Inmate } from '../actions/Prisoners';
 import DeleteButton from './DeleteBtn';
-import { Link } from 'react-router-dom';const Prisoner = props => {
+import { Link } from 'react-router-dom';
+const Prisoner = props => {
 	const { name, id, work_release, skills } = props.inmate;
 	return (
 		<div className='ui container'>
@@ -10,7 +11,7 @@ import { Link } from 'react-router-dom';const Prisoner = props => {
 				<thead className='ui four column grid'>
 					<tr className=' row'>
 						<th className='column'>Name</th>
-						<th className='column'>Id</th>
+						{/* <th className='column'>Id</th> */}
 						<th className='column'>Work Release</th>
 						<th className='column'>Skills</th>
 					</tr>
@@ -18,7 +19,7 @@ import { Link } from 'react-router-dom';const Prisoner = props => {
 				<tbody className='ui four column grid'>
 					<tr className=' row'>
 						<td className='column'>{name}</td>
-						<td className='column'>{id}</td>
+						{/* <td className='column'>{id}</td> */}
 						<td className='column'>{work_release === 0 ? 'true' : 'false'}</td>
 						<td className='column'>{skills}</td>
 						<td className='column'>
@@ -27,7 +28,10 @@ import { Link } from 'react-router-dom';const Prisoner = props => {
 						</td>
 						<td className='column'>
 							{' '}
-							<Link to={`/inmates/${id}`}> update</Link>{' '}
+							<Link to={`/inmates/${id}`}>
+								{' '}
+								<h3>Update</h3>
+							</Link>{' '}
 						</td>
 					</tr>
 				</tbody>

@@ -7,7 +7,8 @@ const DeleteButton = props => {
 			<button
 				className='ui basic red button'
 				onClick={() => {
-					props.Delete_Inmate(props);
+					console.log('props', props);
+					props.Delete_Inmate(props.inmateIds);
 				}}>
 				Delete
 			</button>

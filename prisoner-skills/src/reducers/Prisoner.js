@@ -68,17 +68,18 @@ const PrisonersData = (state = initialState, action) => {
 
 		// delete  start
 		case DELETE_INMATE_START:
-			console.log('this one is from the reducer', action);
 			return {
 				...state,
 				deletingPrisoners : true,
 				error             : '',
 			};
 		case DELETE_INMATE_SUCCESS:
-			console.log('here', action.payload);
+			const { prisoners } = state;
+			const filteredPrisoners = prisoners.filter(inmate => inmate.id !== action.payload);
+			console.log('State', state);
 			return {
 				...state,
-				prisoners         : state.prisoners.filter(inmate => inmate.id !== action.payload),
+				prisoners         : [ ...filteredPrisoners ],
 				deletingPrisoners : false,
 			};
 		case DELETE_INMATE_ERROR:
@@ -93,7 +94,6 @@ const PrisonersData = (state = initialState, action) => {
 		case UPDATE_INMATE_SUCCESS:
 			const newPrisoners = state.prisoners.filter(inmate => inmate.id !== action.payload.id);
 
-			console.log('here', action.payload);
 			return {
 				...state,
 				prisoners         : [ ...newPrisoners, action.payload ],
