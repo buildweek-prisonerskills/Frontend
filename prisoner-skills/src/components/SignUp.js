@@ -82,6 +82,7 @@ class SignUp extends Component {
 											value={this.state.password}
 											onChange={this.handleChanges}
 											className={this.props.error === true ? 'error login-input' : 'login-input'}
+											type='password'
 											required
 										/>
 									</div>
