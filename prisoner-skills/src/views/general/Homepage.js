@@ -1,13 +1,15 @@
+
 import React from 'react';
 import PrisonsHome from '../general/PrisonsHome';
 //import Inmate from '../general/inmatesHome'
-import { Link, Route } from 'react-router-dom';
+import { Link,Route } from 'react-router-dom';
 //import PrisonLogin from '../PrisonLogin';
 const Homepage = () => {
 	return (
 		<div>
-			<div className='ui large top fixed hidden menu'>
+				<div className='ui large top fixed hidden menu'>
 				<div className='ui container'>
+					
 					<Link to='/inmatesHome'>
 						<a className='item'>Inmates</a>
 					</Link>
@@ -29,6 +31,7 @@ const Homepage = () => {
 				</div>
 			</div>
 			<Route path='/prisonsHome' component={PrisonsHome} />
+			
 		</div>
 	);
 };
