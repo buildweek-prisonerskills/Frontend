@@ -19,9 +19,9 @@ export const ADD_PRISON_SUCCESS = ' ADD_PRISON_SUCCESS';
 export const ADD_PRISON_ERROR = 'ADD_PRISON_ERROR';
 export const Add_Prison = prison => dispatch => {
 	dispatch({ type: ADD_PRISON_START });
-	axios
+	return axios
 		.post('https://prisonerskills.herokuapp.com/api/facilities', prison)
-		.then(res => dispatch({ type: ADD_PRISON_SUCCESS, payload: prison }))
+		.then(res =>{ dispatch({ type: ADD_PRISON_SUCCESS, payload: prison });return true})
 		.catch(err => dispatch({ type: ADD_PRISON_ERROR, payload: err.data }));
 };
 
